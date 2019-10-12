@@ -17,9 +17,9 @@ class SlidingWindow {
     Array.ForEach( r, Console.WriteLine);
     
     // Test FindMinSubArray  
-    int[] arr = {3, 4, 1, 1, 6 };
-    int k =8;
-    Console.WriteLine(FindMinSubArray(k,arr));
+    int[] array = {3, 4, 1, 1, 6 };
+    int sum =8;
+    Console.WriteLine(FindMinSubArray(sum,array));
   }
   
   /* Given an array of positive numbers and a positive number ‘k’, 
