@@ -77,7 +77,7 @@ class SlidingWindow {
     }
     var sum =0;
     var l =0; 
-    var minLength =arr.Length;
+    var minLength =arr.Length+1;
   
     for(int i=0; i<arr.Length; i++)
     {
@@ -97,6 +97,6 @@ class SlidingWindow {
       }
       
     }
-    return minLength;
+    return minLength == arr.Length+1 ? 0 : minLength;
   }
 }
