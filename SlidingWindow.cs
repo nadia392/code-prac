@@ -15,6 +15,11 @@ class SlidingWindow {
     // Test AverageSubArray
     double[] r = AverageSubArray(k, arr);
     Array.ForEach( r, Console.WriteLine);
+    
+    // Test FindMinSubArray  
+    int[] arr = {3, 4, 1, 1, 6 };
+    int k =8;
+    Console.WriteLine(FindMinSubArray(k,arr));
   }
   
   /* Given an array of positive numbers and a positive number ‘k’, 
@@ -58,5 +63,40 @@ class SlidingWindow {
       result.Add(average);
     }
     return result.ToArray();
+  }
+  
+  /* Given an array of positive numbers and a positive number ‘S’, 
+     find the length of the smallest subarray whose sum is greater than or equal to ‘S’. 
+     Return 0, if no such subarray exists.
+     The time complexity of this algorithm will be O(N). */
+  public static int FindMinSubArray(int S, int[] arr) 
+  {
+    if(arr.Max()>=S)
+    {
+      return 1;
+    }
+    var sum =0;
+    var l =0; 
+    var minLength =arr.Length;
+  
+    for(int i=0; i<arr.Length; i++)
+    {
+      if(sum>=S)
+      {
+        if(l<minLength)
+        {
+          minLength=l;
+        }
+        sum-=arr[i-(l-1)];
+        l--;
+      }
+      else
+      {
+        l++;
+        sum+=arr[i];
+      }
+      
+    }
+    return minLength;
   }
 }
